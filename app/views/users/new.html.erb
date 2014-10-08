@@ -1,0 +1,38 @@
+<div class="row">
+  <h1>Sign up</h1>
+
+  <%= form_for @user do |form| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation panel large-12 columns">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="large-12 columns">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div class="large-12 columns">
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </div>
+    <div class="large-6 columns">
+      <%= form.label :password %>
+      <%= form.password_field :password %>
+    </div>
+    <div class="large-6 columns">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+
