@@ -68,7 +68,6 @@ class EntriesController < ApplicationController
     def set_entry
       @entry = current_user.entries.find(params[:id])
     end
-
     def ensure_user_owns_entry
       if @entry.user != current_user
         render nothing: true, status: :not_found
